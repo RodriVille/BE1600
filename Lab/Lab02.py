@@ -3,7 +3,7 @@ def falling_distance(t):
     distance= .5 * 9.8 * (t**2)
     print("The distance traveled by an object that has fallen for", t, "seconds is:", "\n", distance, "meters")
 
-time = float(input("Enther the falling time for the object: "))
+time = float(input("Enter the falling time for the object: "))
 
 falling_distance(time)
 
