@@ -61,7 +61,7 @@ def moveTurtle(painter, x, y):
                     num = random.randint(0, 5)
                     painter.color(colorList[num])
             
-moveTurtle(painter, -50, 50)
+moveTurtle(painter, -50, 100)
 
 wn = trtl.Screen()
 wn.mainloop()
