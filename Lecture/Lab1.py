@@ -63,5 +63,4 @@ def moveTurtle(painter, x, y):
             
 moveTurtle(painter, -50, 100)
 
-wn = trtl.Screen()
-wn.mainloop()
+painter.done()

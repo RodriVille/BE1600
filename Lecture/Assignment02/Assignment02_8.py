@@ -1,7 +1,6 @@
 phrase = input("Enter a word of phrase: ")
 
 def word_count(phrase):
-    
     wordList = []
     start = 0
     end = 0
