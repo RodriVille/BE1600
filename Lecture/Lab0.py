@@ -1,21 +1,13 @@
-'''num1 = input("Enter the first number: ")
-num2 = input("Enter the second number: ")
-print(int(num1) + int(num2))'''
+x ='acegikmoqsuwy'
+y ='+bdfhjlnprtvxz'
+z=''
 
-
-import turtle as trtl
-
-
-#int 12, float 12.5, string "ABCD"
-'''print(1,2,3)
-num1 = input("Enter a number: ")
-num1 = float(num1)
-num1 = num1 + 1
-print(num1)'''
-
-def d():
-    a = input("Enter a number ")
-    b = int(a) * 2
-    print(b)
-    
-d()
+for i in range(len(x)):
+    print(i)
+    if(y[i].isalpha() == True):
+        z=z+y[i]
+    else:
+        z=z+x[i]
+        continue
+    z= z+x[i]
+print(z)
