@@ -1,20 +1,21 @@
-import random as r
-k = r.randint(2, 10)
-print(k)
-nums = []
-for i in range(k):
+import random as rand
+n = rand.randint(2, 10)
+print(n)
+numbers = []
+for i in range(n):
     print("Enter a value", (i+1) , ": ", end="")
     num = int(input())
-    nums.append(num)
+    numbers.append(num)
 def collapse(list):
-    collapseNums = []
-    for i in range(0,len(list), 2):
+    collapseList = []
+    for index in range(0,len(list), 2):
         if (len(list)%2 == 0):
-            collapseNums.append(list[i] + list[i+1])
+            collapseList.append(list[index] + list[index+1])
         else:
             if i == (len(list)-1):
+                collapseList.append(list[index])
                 continue
-            collapseNums.append(list[i] + list[i+1])
+            collapseList.append(list[index] + list[index+1])
     print("Old List: ", list)
-    print("Collapse List: ", collapseNums)
-collapse(nums)
+    print("Collapse List: ", collapseList)
+collapse(numbers)
