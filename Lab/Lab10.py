@@ -1,0 +1,2 @@
+def intersect(a, b): return {i:a[i] for i in a if i in b and a[i] == b[i]}
+dict1, dict2 = {'Janet': 87, 'Logan': 62, 'Whitaker': 46, 'Alyssa': 100, 'Stef': 80, 'Jeff': 88, 'Kim': 52, 'Sylvia': 95}, {'Logan': 62, 'Kim': 52, 'Whitaker': 52, 'Jeff': 88, 'Stef': 80, 'Brian': 60, 'Lisa': 83,'Sylvia': 87}; print(dict1); print(dict2); print(intersect(dict1, dict2))

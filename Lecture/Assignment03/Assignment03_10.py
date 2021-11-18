@@ -7,6 +7,9 @@ print("Values: ", end="")
 for i in dict:
     print(dict[i], end=" ")
 print("")
+print("Key-Value pairs")
+for i in dict:
+    print(i, dict[i])
 print("Key-Value pairs sorted by key")
 for i in sorted(dict):
     print(i, dict[i])

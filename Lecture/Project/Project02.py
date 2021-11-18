@@ -1,3 +1,6 @@
+from os import error
+
+
 def main():
     print("Menu\n---------------\n",
     "1. Look up an email address\n",
@@ -15,9 +18,9 @@ def userChoice(choice):
         case "2":
             newEmail()
         case "3":
-            print("3")
+            changeEmail()
         case "4":
-            print("4")
+            deleteInfo()
         case "5":#Ends the program
             print("Information saved.")
         case _:#Calls on the function again if the input is invalid
@@ -26,7 +29,7 @@ def userChoice(choice):
             userChoice(user)
 
 def lookUp():
-    user = input("Enter your a name: ")
+    user = input("Enter a name: ")
     nameInfo = open("Lecture/Project/data.txt", 'r')
     infoList = nameInfo.readlines()
     dict = {}
@@ -37,11 +40,10 @@ def lookUp():
     try:
         print("Name: ", user)
         print("Email: ", dict[user])
-        main()
     except:
         print("That specified name was not found.\n")
+    finally:
         main()
-    
 
 def newEmail():
     name = input("Enter name: ")
@@ -61,7 +63,48 @@ def newEmail():
     print("\n\n")
     main()
 
+def changeEmail():
+    user = input("Enter a name: ")
+    email = input("Enter new adress: ")
+    nameInfo = open("Lecture/Project/data.txt", 'r')
+    infoList = nameInfo.readlines()
+    dict = {}
+    for i in infoList:
+        info = i.split("!")
+        dict[info[0]] = info[1]
+    userInfo = open("Lecture/Project/data.txt", 'w')
+    try:
+        dict[user] = email
+        infoList[list(dict.keys()).index(user)] = user + "!" + email + "\n"
+        print(infoList)
+        for i in infoList:
+            userInfo.write(i)
+        userInfo.close()
+        print("Information updated.\n")
+    except:
+        print("That specified name was not found.\n")
+    finally:
+        main()
 
+def deleteInfo():
+    user = input("Enter a name: ")
+    nameInfo = open("Lecture/Project/data.txt", 'r')
+    infoList = nameInfo.readlines()
+    dict = {}
+    for i in infoList:
+        info = i.split("!")
+        dict[info[0]] = info[1]
+    userInfo = open("Lecture/Project/data.txt", 'w')
+    try:
+        infoList.pop(list(dict.keys()).index(user))
+        print(infoList)
+        for i in infoList:
+            userInfo.write(i)
+        userInfo.close()
+        print("Information deleted.\n")
+    except:
+        print("That specified name was not found.\n")
+    finally:
+        main()
 
 main()
-    
