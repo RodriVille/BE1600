@@ -1,4 +1,4 @@
-Farenheit   Celsius     
+Farenheit   Celcius     
 -10.00      -23.33      
 -9.00       -22.78      
 -8.00       -22.22      

@@ -1,4 +1,4 @@
-books = open("Lecture/Assignment04/books.txt", 'r')
+books = open("books.txt", 'r')
 dict = {}
 for i in books:
     line = i.split(",")

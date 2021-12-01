@@ -27,17 +27,16 @@ def main():#Main Menu
     menuChoice(user)
 
 def menuChoice(choice):#Calls on the correct program based on user input
-    match choice:#Using switch case for user input
-        case "t":
-            encoding()
-        case "m":
-            decoding()
-        case "e":
-            print("Thank you for using this program")
-        case _:#Calls on the function again if the input is invalid
-            print("** invalid option")
-            user = input("Please enter a valid option: ")
-            menuChoice(user)
+    if choice == "t":
+        encoding()
+    elif choice == "m":
+        decoding()
+    elif choice == "e":
+        print("Thank you for using this program")
+    else:#Calls on the function again if the input is invalid
+        print("** invalid option")
+        user = input("Please enter a valid option: ")
+        menuChoice(user)
 
 def encoding():
     print("Please enter text to translate: \n")
