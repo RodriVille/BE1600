@@ -9,20 +9,21 @@ def main():
     userChoice(user)
 
 def userChoice(choice):
-    if choice == "1":
-        lookUp()
-    elif choice == "2":
-        newEmail()
-    elif choice == "3":
-        changeEmail()
-    elif choice == "4":
-        deleteInfo()
-    elif choice == "5":#Ends the program
-        print("Information saved.")
-    else:#Calls on the function again if the input is invalid
-        print("** invalid option")
-        user = input("Please enter a valid option: ")
-        userChoice(user)
+    match choice:
+        case "1":
+            lookUp()
+        case "2":
+            newEmail()
+        case "3":
+            changeEmail()
+        case "4":
+            deleteInfo()
+        case"5":#Ends the program
+            print("Information saved.")
+        case _:#Calls on the function again if the input is invalid
+            print("** invalid option")
+            user = input("Please enter a valid option: ")
+            userChoice(user)
 
 def lookUp():
     user = input("Enter a name: ")
@@ -69,7 +70,7 @@ def changeEmail():
         info = i.split("!")
         dict[info[0]] = info[1]
     userInfo = open("Lecture/Project/data.txt", 'w')
-    if user in dict:
+    try:
         dict[user] = email
         infoList[list(dict.keys()).index(user)] = user + "!" + email + "\n"
         print(infoList)
@@ -77,10 +78,10 @@ def changeEmail():
             userInfo.write(i)
         userInfo.close()
         print("Information updated.\n")
-    else:
+    except:
         print("That specified name was not found.\n")
-    
-    main()
+    finally:
+        main()
 
 def deleteInfo():
     user = input("Enter a name: ")

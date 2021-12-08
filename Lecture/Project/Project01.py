@@ -1,20 +1,11 @@
 def morse():
     #Dictionary for morse code
-    morseDict = { 'A':'.-', 'B':'-...',
-                    'C':'-.-.', 'D':'-..', 'E':'.',
-                    'F':'..-.', 'G':'--.', 'H':'....',
-                    'I':'..', 'J':'.---', 'K':'-.-',
-                    'L':'.-..', 'M':'--', 'N':'-.',
-                    'O':'---', 'P':'.--.', 'Q':'--.-',
-                    'R':'.-.', 'S':'...', 'T':'-',
-                    'U':'..-', 'V':'...-', 'W':'.--',
-                    'X':'-..-', 'Y':'-.--', 'Z':'--..',
-                    '1':'.----', '2':'..---', '3':'...--',
-                    '4':'....-', '5':'.....', '6':'-....',
-                    '7':'--...', '8':'---..', '9':'----.',
-                    '0':'-----', ', ':'--..--', '.':'.-.-.-',
-                    '?':'..--..', '/':'-..-.', '-':'-....-',
-                    '(':'-.--.', ')':'-.--.-'}
+    file = open('morse.txt', 'r')
+    file = file.readlines()
+    morseDict = {}
+    for i in file:
+        i = i.split()
+        morseDict[i[0]] = i[1]
     return morseDict
 
 def main():#Main Menu
@@ -27,16 +18,17 @@ def main():#Main Menu
     menuChoice(user)
 
 def menuChoice(choice):#Calls on the correct program based on user input
-    if choice == "t":
-        encoding()
-    elif choice == "m":
-        decoding()
-    elif choice == "e":
-        print("Thank you for using this program")
-    else:#Calls on the function again if the input is invalid
-        print("** invalid option")
-        user = input("Please enter a valid option: ")
-        menuChoice(user)
+    match choice:
+        case "t":
+            encoding()
+        case"m":
+            decoding()
+        case "e":
+            print("Thank you for using this program")
+        case _:#Calls on the function again if the input is invalid
+            print("** invalid option")
+            user = input("Please enter a valid option: ")
+            menuChoice(user)
 
 def encoding():
     print("Please enter text to translate: \n")

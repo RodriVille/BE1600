@@ -12,7 +12,8 @@ def encrypt(user):
             railThree = railThree + user[i + 2]
         except:
             continue
-    cipher = railThree + railTwo + railOne
+    print(railOne, "\n", railTwo, "\n", railThree)
+    cipher = railOne + railTwo + railThree
     print("CipherText:", cipher)
     
 encrypt(user)
